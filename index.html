@@ -16,9 +16,9 @@
               })();
             ">`;
 
-            document.getElementById("f").onload = () => {
+            document.getElementById("preview-frame").onload = () => {
                 document
-                    .getElementById("f")
+                    .getElementById("preview-frame")
                     .contentWindow.postMessage({ html: payload }, "*");
             };
         </script>
